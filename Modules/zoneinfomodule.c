@@ -2558,11 +2558,11 @@ static PyMethodDef zoneinfo_methods[] = {
 };
 
 static PyMemberDef zoneinfo_members[] = {
-    {"key",                              /* name */
-     offsetof(PyZoneInfo_ZoneInfo, key), /* offset */
-     T_OBJECT_EX,                        /* type */
-     READONLY,                           /* flags */
-     NULL /* docstring */},
+    {.name = "key",
+     .offset = offsetof(PyZoneInfo_ZoneInfo, key),
+     .type = T_OBJECT_EX,
+     .flags = READONLY,
+     .doc = NULL},
     {NULL}, /* Sentinel */
 };
 
