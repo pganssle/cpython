@@ -31,10 +31,10 @@ def _load_timedelta(seconds):
 
 
 class ZoneInfo(tzinfo):
-    __module__ = "zoneinfo"
     _strong_cache_size = 8
     _strong_cache = collections.OrderedDict()
     _weak_cache = weakref.WeakValueDictionary()
+    __module__ = "zoneinfo"
 
     def __init_subclass__(cls):
         cls._strong_cache = collections.OrderedDict()
