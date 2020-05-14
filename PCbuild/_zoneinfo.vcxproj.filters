@@ -9,7 +9,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Modules\zoneinfomodule.c">
+    <ClCompile Include="..\Modules\_zoneinfo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

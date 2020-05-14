@@ -8,9 +8,9 @@
 #include "datetime.h"
 
 // Imports
-PyObject *io_open = NULL;
-PyObject *_tzpath_find_tzfile = NULL;
-PyObject *_common_mod = NULL;
+static PyObject *io_open = NULL;
+static PyObject *_tzpath_find_tzfile = NULL;
+static PyObject *_common_mod = NULL;
 
 typedef struct TransitionRuleType TransitionRuleType;
 typedef struct StrongCacheNode StrongCacheNode;
@@ -2585,7 +2585,7 @@ static PyTypeObject PyZoneInfo_ZoneInfoType = {
 };
 
 /////
-// Specify the zoneinfo._czoneinfo module
+// Specify the _zoneinfo module
 static PyMethodDef module_methods[] = {{NULL, NULL}};
 static void
 module_free()
@@ -2681,7 +2681,7 @@ static PyModuleDef_Slot zoneinfomodule_slots[] = {
 
 static struct PyModuleDef zoneinfomodule = {
     PyModuleDef_HEAD_INIT,
-    .m_name = "zoneinfo._czoneinfo",
+    .m_name = "_zoneinfo",
     .m_doc = "C implementation of the zoneinfo module",
     .m_size = 0,
     .m_methods = module_methods,
@@ -2689,7 +2689,7 @@ static struct PyModuleDef zoneinfomodule = {
     .m_free = (freefunc)module_free};
 
 PyMODINIT_FUNC
-PyInit__czoneinfo(void)
+PyInit__zoneinfo(void)
 {
     return PyModuleDef_Init(&zoneinfomodule);
 }

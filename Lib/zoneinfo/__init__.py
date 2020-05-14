@@ -10,7 +10,7 @@ from . import _tzpath
 from ._common import ZoneInfoNotFoundError
 
 try:
-    from _czoneinfo import ZoneInfo
+    from _zoneinfo import ZoneInfo
 except ImportError:  # pragma: nocover
     from ._zoneinfo import ZoneInfo
 

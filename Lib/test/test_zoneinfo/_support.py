@@ -35,7 +35,7 @@ def get_modules():
     """
     import zoneinfo as c_module
 
-    py_module = import_fresh_module("zoneinfo", blocked=["_czoneinfo"])
+    py_module = import_fresh_module("zoneinfo", blocked=["_zoneinfo"])
 
     return py_module, c_module
 

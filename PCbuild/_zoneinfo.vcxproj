@@ -68,7 +68,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FCBE1EF2-E0F0-40B1-88B5-00A35D378742}</ProjectGuid>
-    <RootNamespace>_czoneinfo</RootNamespace>
+    <RootNamespace>_zoneinfo</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="python.props" />
@@ -92,7 +92,7 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ClCompile Include="..\Modules\zoneinfomodule.c" />
+    <ClCompile Include="..\Modules\_zoneinfo.c" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\PC\python_nt.rc" />

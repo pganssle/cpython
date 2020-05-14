@@ -132,7 +132,7 @@ library which are implemented in C; each one builds a DLL (renamed to
 _asyncio
 _ctypes
 _ctypes_test
-_czoneinfo
+_zoneinfo
 _decimal
 _elementtree
 _hashlib
