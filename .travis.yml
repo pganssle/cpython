@@ -172,8 +172,6 @@ before_script:
       fi
   - make -j4
   - make pythoninfo
-  - ./python -m ensurepip --user
-  - ./python -m pip install --user -r Misc/requirements-test.txt
 
 script:
   # Using the built Python as patchcheck.py is built around the idea of using
