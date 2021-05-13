@@ -1,3 +1,4 @@
+from enum import Enum
 import functools
 import unittest
 
@@ -14,8 +15,6 @@ __all__ = [
 ]
 
 from . import strategies
-from ._settings import HealthCheck, Verbosity, settings
-from .control import assume, reject
 
 
 def given(*_args, **_kwargs):
@@ -29,6 +28,9 @@ def given(*_args, **_kwargs):
                         f(self, *example_args, **example_kwargs)
 
         else:
+            # If we have found no examples, we must skip the test. If @example
+            # is applied after @given, it will re-wrap the test to remove the
+            # skip decorator.
             test_function = unittest.skip(
                 "Hypothesis required for property test with no " +
                 "specified examples"
@@ -62,5 +64,39 @@ def example(*args, **kwargs):
     return decorator
 
 
+def assume(condition):
+    if not condition:
+        raise unittest.SkipTest("Unsatisfied assumption")
+    return True
+
+
+def reject():
+    assume(False)
+
+
 def register_random(*args, **kwargs):
     pass  # pragma: no cover
+
+
+def settings(*args, **kwargs):
+    pass  # pragma: nocover
+
+
+class HealthCheck(Enum):
+    data_too_large = 1
+    filter_too_much = 2
+    too_slow = 3
+    return_value = 5
+    large_base_example = 7
+    not_a_test_method = 8
+
+    @classmethod
+    def all(cls):
+        return list(cls)
+
+
+class Verbosity(Enum):
+    quiet = 0
+    normal = 1
+    verbose = 2
+    debug = 3
